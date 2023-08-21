@@ -18,7 +18,7 @@ namespace CustomTimer.Factories
         /// <returns>A reference to an object of the <see cref="Timer"/> class.</returns>
         public static Timer CreateTimer(string name, int ticks)
         {
-            return Timer.CreateInstance(name, ticks);
+            return new Timer(name, ticks);
         }
     }
 }

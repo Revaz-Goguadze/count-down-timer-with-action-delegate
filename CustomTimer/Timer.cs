@@ -35,7 +35,7 @@
 #pragma warning restore CA1003
 
 #pragma warning disable SA1201
-        private Timer(string name, int ticks)
+        public Timer(string name, int ticks)
 #pragma warning restore SA1201
         {
             if (string.IsNullOrEmpty(name))

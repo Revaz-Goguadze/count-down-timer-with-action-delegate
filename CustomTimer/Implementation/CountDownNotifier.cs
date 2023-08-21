@@ -23,7 +23,6 @@ namespace CustomTimer.Implementation
         public void Run()
         {
             // Initialize your Timer object using the TimerFactory
-            // ReSharper disable once UnusedVariable
             TimerFactory timerFactory = new TimerFactory();
             Timer timer = TimerFactory.CreateTimer("MyTimer", 5);
 

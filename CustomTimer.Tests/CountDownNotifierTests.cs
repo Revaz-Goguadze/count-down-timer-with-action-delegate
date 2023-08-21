@@ -18,7 +18,7 @@ namespace CustomTimer.Tests
         [TestCase("pie", 10)]
         [TestCase("cookies", 5)]
         [TestCase("pizza", 1)]
-        public void RunValidTimerAllEventsWorkAsExpected(string name, int totalTicks)
+        public void Run_ValidTimer_AllEventsWorkAsExpected(string name, int totalTicks)
         {
             var timer = TimerFactory.CreateTimer(name, totalTicks);
             var notifier = CountDownNotifierFactory.CreateNotifierForTimer(timer);
