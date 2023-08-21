@@ -18,10 +18,10 @@ namespace CustomTimer.Tests
         [TestCase("pie", 10)]
         [TestCase("cookies", 5)]
         [TestCase("pizza", 1)]
-        public void Run_ValidTimer_AllEventsWorkAsExpected(string name, int totalTicks)
+        public void RunValidTimerAllEventsWorkAsExpected(string name, int totalTicks)
         {
-            var timer = this.timerFactory.CreateTimer(name, totalTicks);
-            var notifier = this.countDownNotifierFactory.CreateNotifierForTimer(timer);
+            var timer = TimerFactory.CreateTimer(name, totalTicks);
+            var notifier = CountDownNotifierFactory.CreateNotifierForTimer(timer);
 
             void TimerStarted(string timerName, int ticks)
             {
@@ -57,8 +57,8 @@ namespace CustomTimer.Tests
         [TestCase("pizza", 1)]
         public void Run_NullDelegates_TimerIsWorking(string name, int totalTicks)
         {
-            var timer = this.timerFactory.CreateTimer(name, totalTicks);
-            var notifier = this.countDownNotifierFactory.CreateNotifierForTimer(timer);
+            var timer = TimerFactory.CreateTimer(name, totalTicks);
+            var notifier = CountDownNotifierFactory.CreateNotifierForTimer(timer);
 
             Assert.DoesNotThrow(() =>
             {
@@ -69,6 +69,6 @@ namespace CustomTimer.Tests
 
         [Test]
         public void Ctor_TimerIsNull_ThrowsArgumentNullException()
-            => Assert.Throws<ArgumentNullException>(() => this.countDownNotifierFactory.CreateNotifierForTimer(null));
+            => Assert.Throws<ArgumentNullException>(() => CountDownNotifierFactory.CreateNotifierForTimer(null));
     }
 }

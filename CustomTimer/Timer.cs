@@ -19,7 +19,55 @@
     /// </summary>
     public class Timer
     {
-        // TODO: Add implementation here.
-        // Don't use .NET timers classes implementation.
+        private readonly string name;
+        private readonly int ticks;
+
+#pragma warning disable CA1003
+        public event Action<string, int> Started;
+#pragma warning restore CA1003
+
+#pragma warning disable CA1003
+        public event Action<string, int> Tick;
+#pragma warning restore CA1003
+
+#pragma warning disable CA1003
+        public event Action<string> Stopped;
+#pragma warning restore CA1003
+
+#pragma warning disable SA1201
+        private Timer(string name, int ticks)
+#pragma warning restore SA1201
+        {
+            if (string.IsNullOrEmpty(name))
+            {
+                throw new ArgumentException("Name cannot be null or empty.", nameof(name));
+            }
+
+            if (ticks <= 0)
+            {
+                throw new ArgumentException("Ticks must be greater than 0.", nameof(ticks));
+            }
+
+            this.name = name;
+            this.ticks = ticks;
+        }
+
+        public static Timer CreateInstance(string name, int ticks)
+        {
+            return new Timer(name, ticks);
+        }
+
+        public void Run()
+        {
+            this.Started?.Invoke(this.name, this.ticks);
+
+            for (int i = this.ticks; i > 0; i--)
+            {
+                this.Tick?.Invoke(this.name, i);
+                Thread.Sleep(1000); // Simulating a delay of 1 second between ticks
+            }
+
+            this.Stopped?.Invoke(this.name);
+        }
     }
 }
