@@ -14,11 +14,11 @@ namespace CustomTimer.Tests
 
         [TestCase("")]
         [TestCase(null)]
-        public void Ctor_EmptyTimerName_ThrowsArgumentException(string timerName) => Assert.Throws<ArgumentException>(() => TimerFactory.CreateTimer(timerName, 1));
+        public void Ctor_EmptyTimerName_ThrowsArgumentException(string timerName) => Assert.Throws<ArgumentException>(() => this.timerFactory.CreateTimer(timerName, 1));
 
         [TestCase(0)]
         [TestCase(-1)]
         [TestCase(int.MinValue)]
-        public void Ctor_InvalidSecondsCount_ThrowsArgumentException(int totalTicks) => Assert.Throws<ArgumentException>(() => TimerFactory.CreateTimer("tea", totalTicks));
+        public void Ctor_InvalidSecondsCount_ThrowsArgumentException(int totalTicks) => Assert.Throws<ArgumentException>(() => this.timerFactory.CreateTimer("tea", totalTicks));
     }
 }
