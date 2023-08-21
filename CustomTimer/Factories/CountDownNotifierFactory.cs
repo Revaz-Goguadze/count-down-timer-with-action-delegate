@@ -18,7 +18,7 @@ namespace CustomTimer.Factories
         /// <param name="timer">A reference to a class CustomTimer.</param>
         /// <returns>A reference to an object of the class that implements the <see cref="ICountDownNotifier"/> interface.</returns>
         /// <exception cref="ArgumentNullException">When timer is null.</exception>
-        public static ICountDownNotifier CreateNotifierForTimer(Timer timer)
+        public ICountDownNotifier CreateNotifierForTimer(Timer timer)
         {
             if (timer == null)
             {

@@ -24,7 +24,7 @@ namespace CustomTimer.Implementation
         {
             // Initialize your Timer object using the TimerFactory
             TimerFactory timerFactory = new TimerFactory();
-            Timer timer = TimerFactory.CreateTimer("MyTimer", 5);
+            Timer timer = timerFactory.CreateTimer("MyTimer", 5);
 
             // Subscribe to Timer events
             timer.Started += (name, ticks) => this.startHandler?.Invoke(name, ticks);

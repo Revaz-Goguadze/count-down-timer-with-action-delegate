@@ -1,4 +1,5 @@
-﻿using CustomTimer.Factories;
+﻿using System;
+using CustomTimer.Factories;
 using NUnit.Framework;
 
 namespace CustomTimer.Tests
