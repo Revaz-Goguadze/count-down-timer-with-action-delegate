@@ -22,9 +22,11 @@ namespace CustomTimer.Implementation
 
         public void Run()
         {
-            // Initialize your Timer object using the TimerFactory
+            // Initialize a TimerFactory instance
             TimerFactory timerFactory = new TimerFactory();
-            Timer timer = TimerFactory.CreateTimer("MyTimer", 5);
+
+            // Create a timer using the TimerFactory instance
+            Timer timer = timerFactory.CreateTimer("MyTimer", 5);
 
             // Subscribe to Timer events
             timer.Started += (name, ticks) => this.startHandler?.Invoke(name, ticks);
